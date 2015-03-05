@@ -79,8 +79,24 @@ USE_L10N = True
 
 USE_TZ = True
 
+TEMPLATE_DIRS = (
+    BASE_DIR + '/tut1/templates',
+)
+
+STATICFILES_DIRS = (
+#	os.path.join(BASE_DIR, '../tut1/static/tut1/'),
+	BASE_DIR + '/tut1/static',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+#STATIC_URL = '/static/'
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/static/'
+
+#should be here:
+#/home/dima/projects/angular-tutorial/anglr1/tut1/static/tut1
+#is here:
+#/home/dima/projects/angular-tutorial/anglr1/tut1/static/tut1/app.js
