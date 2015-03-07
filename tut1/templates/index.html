@@ -1,9 +1,18 @@
-<html>
+<html ng-app="store">
 <head>
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
 </head>
 <body>
     <p>Paragraph on index page.</p>
+	{% verbatim %}
+	<div ng-controller = "StoreController as store">
+		<ul ng-repeat="product in store.products">
+			<h1> {{product.name}} </h1>
+			<li><h2>{{product.price}}</h2></li>
+			<li><p>{{product.description}}</p></li>
+		</ul>
+	</div>
+	{% endverbatim %}
 	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}tut1/app.js"></script>
 </body>
