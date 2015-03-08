@@ -80,7 +80,8 @@ USE_L10N = True
 USE_TZ = True
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/tut1/templates',
+    BASE_DIR + '/tut1/templates/tut1',
+	BASE_DIR + '/tut1_tabs/templates/tut1_tabs'
 )
 
 STATICFILES_DIRS = (
