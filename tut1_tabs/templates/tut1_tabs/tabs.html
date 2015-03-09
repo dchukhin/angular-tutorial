@@ -5,7 +5,6 @@
 <body>
 	{% verbatim %}
 	<!-- Give StoreController control over this div element. -->
-	{{store.products}}aaaaaa
 	<div class="list-group" ng-controller = "StoreController as store">
 		<!-- List each of the products in our store using ng-repeat. -->
 		<div class="list-group-item" ng-repeat="product in store.products">
