@@ -4,18 +4,27 @@
 </head>
 <body>
 	{% verbatim %}
+	<!-- Give StoreController control over this div element. -->
 	<div class="list-group" ng-controller = "StoreController as store">
+		<!-- List each of the products in our store using ng-repeat. -->
 		<div class="list-group-item" ng-repeat="product in store.products">
+			<!-- First, print out the product name. -->
 			<h3>{{product.name}}</h3>
+			<!-- Each product has two tabs; TabController will control them.-->
 			<div class="tab" ng-controller="TabController as tab">
+				<!-- An unordered list of the tabs for the product. -->
 				<ul class="nav nav-pills">
-					<li ng-class="{ active:tab.isSet(1) }">
+					<!-- Each tab is highlighted when it is active. This uses
+					the bootstrap active class. -->
+					<li ng-class="{active:tab.isTabSet(1)}">
 						<a href ng-click="tab.setTab(1)">Gem Description</a>
 					</li>
-					<li ng-class="{ active:tab.isSet(2) }">
+					<li ng-class="{active:tab.isTabSet(2)}">
 						<a href ng-click="tab.setTab(2)">Gem Price</a>
 					</li>
 				</ul>
+				<!-- In these div elements we display the contents of the 
+				tabs that we defined above. -->
 				<div ng-show="tab.isTabSet(1)">
 					<h5>{{product.description}}</h5>
 				</div>

@@ -87,6 +87,7 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
 #	os.path.join(BASE_DIR, '../tut1/static/tut1/'),
 	BASE_DIR + '/tut1/static',
+	BASE_DIR + '/tut1_tabs/static',
 )
 
 # Static files (CSS, JavaScript, Images)
