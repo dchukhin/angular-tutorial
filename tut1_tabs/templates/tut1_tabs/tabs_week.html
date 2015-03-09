@@ -5,7 +5,26 @@
 </head>
 {% verbatim %}
 <body ng-controller="DayController">
-
+	<!-- Put tabs for each day of the week. -->
+	<div class="tab" ng-controller="TabController as tab">
+		<!-- The tabs: -->
+		<ul class="nav nav-pills">
+			<li> Monday 
+			</li>
+			<li> Tuesday
+            </li>
+			<li> Wednesday
+            </li>
+			<li> Thursday
+            </li>
+			<li> Friday
+            </li>
+			<li> Saturday
+            </li>
+			<li> Sunday
+            </li>
+		</ul>
+	</div>
 {% endverbatim %}
 	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/app_tut1_tabs_week.js"></script>
