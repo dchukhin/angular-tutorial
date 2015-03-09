@@ -5,6 +5,7 @@
 <body>
 	{% verbatim %}
 	<!-- Give StoreController control over this div element. -->
+	{{store.products}}aaaaaa
 	<div class="list-group" ng-controller = "StoreController as store">
 		<!-- List each of the products in our store using ng-repeat. -->
 		<div class="list-group-item" ng-repeat="product in store.products">
@@ -23,6 +24,7 @@
 						<a href ng-click="tab.setTab(2)">Gem Price</a>
 					</li>
 				</ul>
+				{{tab}}
 				<!-- In these div elements we display the contents of the 
 				tabs that we defined above. -->
 				<div ng-show="tab.isTabSet(1)">

@@ -1,29 +1,61 @@
-<html>
+<html ng-app="stats">
 <head>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
 
 </head>
 {% verbatim %}
-<body ng-controller="DayController">
+<body ng-controller="DayController as day">
 	<!-- Put tabs for each day of the week. -->
 	<div class="tab" ng-controller="TabController as tab">
 		<!-- The tabs: -->
 		<ul class="nav nav-pills">
-			<li> Monday 
+			<!-- If current tab is active, then it should be shown active. -->
+			<li ng-class="{active:tab.isTabSet(1)}">
+				<a href ng-click="tab.setTab(1)">Monday</a>
 			</li>
-			<li> Tuesday
+			<li ng-class="{active:tab.isTabSet(2)}">
+				<a href ng-click="tab.setTab(2)">Tuesday</a>
             </li>
-			<li> Wednesday
+			<li ng-class="{active:tab.isTabSet(3)}">
+				<a href ng-click="tab.setTab(3)">Wednesday</a>
             </li>
-			<li> Thursday
+			<li ng-class="{active:tab.isTabSet(4)}">
+				<a href ng-click="tab.setTab(4)">Thursday</a>
             </li>
-			<li> Friday
+			<li ng-class="{active:tab.isTabSet(5)}">
+				<a href ng-click="tab.setTab(5)">Friday</a>
             </li>
-			<li> Saturday
+			<li ng-class="{active:tab.isTabSet(6)}">
+				<a href ng-click="tab.setTab(6)">Saturday</a>
             </li>
-			<li> Sunday
+			<li ng-class="{active:tab.isTabSet(7)}">
+				<a href ng-click="tab.setTab(7)">Sunday</a>
             </li>
 		</ul>
+		<!-- Display the contents of the tabs defined above. Monday 
+		corresponds to tab=1, but it is element 0 in the array, Tuesday 
+		corresponds to tab=2, but it is element 1 in the array, and so on.-->
+		<div ng-show="tab.isTabSet(1)">
+			<p>{{day.days[0].people}}</p>
+		</div>
+		<div ng-show="tab.isTabSet(2)">
+			<p>{{day.days[1].people}}</p>
+		</div>
+		<div ng-show="tab.isTabSet(3)">
+            <p>{{day.days[2].people}}</p>
+        </div>
+        <div ng-show="tab.isTabSet(4)">
+            <p>{{day.days[3].people}}</p>
+        </div>
+		<div ng-show="tab.isTabSet(5)">
+            <p>{{day.days[4].people}}</p>
+        </div>
+        <div ng-show="tab.isTabSet(6)">
+            <p>{{day.days[5].people}}</p>
+        </div>
+		<div ng-show="tab.isTabSet(7)">
+            <p>{{day.days[6].people}}</p>
+        </div>
 	</div>
 {% endverbatim %}
 	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>

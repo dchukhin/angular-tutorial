@@ -17,7 +17,7 @@
 		/*Method to check if the current tab is set. Used to display/highlight
  		the current tab.*/
 		this.isTabSet = function(tabToCheck){
-			return (this.tab === tabToCheck);
+			return this.tab === tabToCheck;
 		};
 	});
 
