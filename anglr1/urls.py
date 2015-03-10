@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^$', tut1_views.index),
 	url(r'^tabs/$', tut1_tabs_views.tabs),
 	url(r'^tabs_week$', tut1_tabs_views.tabs_week),
+	url(r'^tabs_review_form$', tut1_tabs_views.tabs_review_form),
 )
