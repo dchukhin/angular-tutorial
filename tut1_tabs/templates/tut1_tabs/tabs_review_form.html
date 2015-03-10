@@ -22,6 +22,9 @@
 					<li ng-class="{active:tab.isTabSet(2)}">
 						<a href ng-click="tab.setTab(2)">Gem Price</a>
 					</li>
+					<li ng-class="{active:tab.isTabSet(3)}">
+						<a href ng-click="tab.setTab(3)">Reviews</a>
+					</li>
 				</ul>
 				{{tab}}
 				<!-- In these div elements we display the contents of the 
@@ -32,11 +35,22 @@
 				<div ng-show="tab.isTabSet(2)">
 					<h5>{{product.price}}</h5>
 				</div>
+				<div ng-show="tab.isTabSet(3)">
+					<ul>
+						<li ng-repeat="review in product.reviews"
+							<blockquote>
+								<strong>{{review.stars}} stars</strong>
+								{{review.body}}
+								<cite class="clearfix">-{{review.author}}</cite>
+							</blockquote>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
 	{% endverbatim %}
 	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>
-	<script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/app_tut1_tabs.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/app_tut1_tabs_review_form.js"></script>
 </body>
 </html>
