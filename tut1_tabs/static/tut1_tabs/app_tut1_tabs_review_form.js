@@ -16,6 +16,19 @@
 			return this.tab === tabToCheck;
 		};
 	});
+	
+	/*Our review controller takes the current product as the only parameter.
+    *Then it adds the current review to the end of the product reviews.*/
+	app.controller('ReviewController', function(){
+		this.review = {};
+
+		this.addReview = function(product){
+			product.reviews.push(this.review);
+			/*Now clear the review form so that it is blank for next review.*/
+			this.review = {};
+		};
+	});
+	
 
 	var gems = [
 		{name: 'Dodecahedron',
