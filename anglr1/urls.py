@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 	url(r'^tabs/$', tut1_tabs_views.tabs),
 	url(r'^tabs_week$', tut1_tabs_views.tabs_week),
 	url(r'^tabs_review_form$', tut1_tabs_views.tabs_review_form),
+	url(r'^tabs_review_form_directives$', tut1_tabs_views.tabs_review_form_directives),
 )

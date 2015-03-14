@@ -1,0 +1,100 @@
+<html ng-app="store">
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+</head>
+<body>
+	{% verbatim %}
+	<!-- Give StoreController control over this div element. -->
+	<div class="list-group" ng-controller = "StoreController as store">
+		<!-- List each of the products in our store using ng-repeat. -->
+		<div class="list-group-item" ng-repeat="product in store.products">
+			<!-- First, print out the product name. -->
+			<h3>{{product.name}}</h3>
+			<!-- Each product has two tabs; TabController will control them.-->
+			<div class="tab" ng-controller="TabController as tab">
+				<!-- An unordered list of the tabs for the product. -->
+				<ul class="nav nav-pills">
+					<!-- Each tab is highlighted when it is active. This uses
+					the bootstrap active class. -->
+					<li ng-class="{active:tab.isTabSet(1)}">
+						<a href ng-click="tab.setTab(1)">Gem Description</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(2)}">
+						<a href ng-click="tab.setTab(2)">Gem Price</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(3)}">
+						<a href ng-click="tab.setTab(3)">Reviews</a>
+					</li>
+				</ul>
+				{{tab}}
+				<!-- In these div elements we display the contents of the 
+				tabs that we defined above. -->
+				<div ng-show="tab.isTabSet(1)">
+					<h5>{{product.description}}</h5>
+				</div>
+				<div ng-show="tab.isTabSet(2)">
+					<h5>{{product.price}}</h5>
+				</div>
+				<!-- For the reviews we loop through all of them, displaying 
+				the number of stars, the body of the review, and the author's
+				email address. -->
+				<div ng-show="tab.isTabSet(3)">
+					<ul>
+						<li ng-repeat="review in product.reviews">
+							<blockquote>
+								<strong>{{review.stars}} stars</strong>
+								{{review.body}}
+								<cite class="clearfix">-{{review.author}}</cite>
+							</blockquote>
+						</li>
+					</ul>
+					<form name="reviewForm" 
+						ng-controller="ReviewController as reviewCtrl"
+						ng-submit="reviewCtrl.addReview(product)">
+						<h3> Submit a review <h3>
+						<!-- Live Preview -->
+						<!--  Live Preview -->
+	  	                <blockquote >
+                			<strong>{{reviewCtrl.review.stars}} Stars</strong>
+                			{{reviewCtrl.review.body}}
+                			<cite class="clearfix">—{{reviewCtrl.review.author}}
+							</cite>
+              			</blockquote>	
+						
+						<!-- The form -->
+						<fieldset class = "form-group">
+							<select ng-model="reviewCtrl.review.stars" 
+								class="form-control" 
+								ng-options="stars for stars in [5,4,3,2,1]" 
+								title="Stars">
+	  	                        
+								<option value>Rate the Product</option>
+						</fieldset>
+						<fieldset class="form-group">
+			                <textarea ng-model="reviewCtrl.review.body" 
+								class="form-control" 
+								placeholder="Write a short review " 
+								title="Review">
+							</textarea>
+		            	</fieldset>
+						<fieldset class="form-group">
+                	  		<input ng-model="reviewCtrl.review.author" 
+					        	type="email" class="form-control" 
+								placeholder="person@example.org" 
+								title="Email" />
+		            	</fieldset>
+        		    	<fieldset class="form-group">
+		          		<input type="submit" 
+							class="btn btn-primary pull-right" 
+							value="Submit Review" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endverbatim %}
+	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/app_tut1_tabs_review_form.js"></script>
+</body>
+</html>

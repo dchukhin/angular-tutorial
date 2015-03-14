@@ -8,3 +8,6 @@ def tabs_week(request):
 
 def tabs_review_form(request):
 	return render(request, 'tabs_review_form.html')
+
+def tabs_review_form_directives(request):
+	return render(request, 'tabs_review_form_directives.html')
