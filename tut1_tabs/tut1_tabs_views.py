@@ -11,3 +11,6 @@ def tabs_review_form(request):
 
 def tabs_review_form_directives(request):
 	return render(request, 'tabs_review_form_directives.html')
+
+def product_description(request):
+	return render(request, 'product-description.html')
