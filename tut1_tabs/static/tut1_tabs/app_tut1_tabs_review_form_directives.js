@@ -5,18 +5,6 @@
 		this.products=gems;
 	});
 
-	app.controller('TabController', function(){
-		this.tab = 1;
-
-		this.setTab = function(tabToSet){
-			this.tab = tabToSet;
-		};
-		
-		this.isTabSet = function(tabToCheck){
-			return this.tab === tabToCheck;
-		};
-	});
-	
 	/*Our review controller takes the current product as the only parameter.
     *Then it adds the current review to the end of the product reviews.*/
 	app.controller('ReviewController', function(){
@@ -26,6 +14,25 @@
 			product.reviews.push(this.review);
 			/*Now clear the review form so that it is blank for next review.*/
 			this.review = {};
+		};
+	});
+
+	app.directive('productTabs', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'product-tabs',
+			controller: function(){
+				this.tab = 1;
+
+		        this.setTab = function(tabToSet){
+        	    this.tab = tabToSet;
+		        };
+
+        		this.isTabSet = function(tabToCheck){
+		            return this.tab === tabToCheck;
+        		};
+			},
+			controllerAs: 'tab'
 		};
 	});
 

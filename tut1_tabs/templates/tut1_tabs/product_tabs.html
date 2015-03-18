@@ -1,0 +1,27 @@
+<!-- Each product has two tabs; TabController will control them.-->
+{% verbatim %}
+			<div class="tab">
+				<!-- An unordered list of the tabs for the product. -->
+				<ul class="nav nav-pills">
+					<!-- Each tab is highlighted when it is active. This uses
+					the bootstrap active class. -->
+					<li ng-class="{active:tab.isTabSet(1)}">
+						<a href ng-click="tab.setTab(1)">Gem Description</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(2)}">
+						<a href ng-click="tab.setTab(2)">Gem Price</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(3)}">
+						<a href ng-click="tab.setTab(3)">Reviews</a>
+					</li>
+				</ul>
+				{{tab}}
+				<!-- In these div elements we display the contents of the 
+				tabs that we defined above. -->
+				<product-description ng-show="tab.isTabSet(1)"></product-description>
+				<div ng-show="tab.isTabSet(2)">
+					<h5>{{product.price}}</h5>
+				</div>
+				<product-reviews ng-show="tab.isTabSet(3)">aaa</product-reviews>
+			</div>
+{% endverbatim %}

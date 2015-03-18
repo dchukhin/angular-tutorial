@@ -17,3 +17,6 @@ def product_description(request):
 
 def product_reviews(request):
 	return render(request, 'product_reviews.html')
+
+def product_tabs(request):
+	return render(request, 'product_tabs.html')

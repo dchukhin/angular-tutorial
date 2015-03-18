@@ -16,4 +16,5 @@ urlpatterns = patterns('',
 	url(r'^tabs_review_form_directives$', tut1_tabs_views.tabs_review_form_directives),
 	url(r'^product-description$', tut1_tabs_views.product_description),
 	url(r'^product-reviews$', tut1_tabs_views.product_reviews),
+	url(r'^product-tabs$', tut1_tabs_views.product_tabs),
 )
