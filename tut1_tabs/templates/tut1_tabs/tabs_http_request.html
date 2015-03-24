@@ -1,0 +1,43 @@
+<html ng-app="store">
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+</head>
+<body>
+	{% verbatim %}
+	<!-- Give StoreController control over this div element. -->
+	<div class="list-group" ng-controller = "StoreController as store">
+		<!-- List each of the products in our store using ng-repeat. -->
+		<div class="list-group-item" ng-repeat="product in store.products">
+			<!-- First, print out the product name. -->
+			<h3>{{product.name}}</h3>
+                        <product-tabs></product-tabs>
+			<!--
+			<div class="tab" ng-controller="TabController as tab">
+				<ul class="nav nav-pills">
+
+					<li ng-class="{active:tab.isTabSet(1)}">
+						<a href ng-click="tab.setTab(1)">Gem Description</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(2)}">
+						<a href ng-click="tab.setTab(2)">Gem Price</a>
+					</li>
+					<li ng-class="{active:tab.isTabSet(3)}">
+						<a href ng-click="tab.setTab(3)">Reviews</a>
+					</li>
+				</ul>
+				{{tab}}
+				<product-description ng-show="tab.isTabSet(1)"></product-description>
+				<div ng-show="tab.isTabSet(2)">
+					<h5>{{product.price}}</h5>
+				</div>
+				<product-reviews ng-show="tab.isTabSet(3)">aaa</product-reviews>
+			</div>
+			-->
+		</div>
+	</div>
+	{% endverbatim %}
+	<script type="text/javascript" src="{{STATIC_URL}}tut1/angular.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/app_tut1_tabs_http_request.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}tut1_tabs/store-directives.js"></script>
+</body>
+</html>

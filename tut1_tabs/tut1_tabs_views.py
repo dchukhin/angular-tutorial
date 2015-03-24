@@ -20,3 +20,9 @@ def product_reviews(request):
 
 def product_tabs(request):
 	return render(request, 'product_tabs.html')
+
+def tabs_http_request(request):
+	return render(request, 'tabs_http_request.html')
+
+def store_products(request):
+	return render(request, 'store-products.json')

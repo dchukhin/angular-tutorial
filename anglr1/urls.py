@@ -17,4 +17,6 @@ urlpatterns = patterns('',
 	url(r'^product-description$', tut1_tabs_views.product_description),
 	url(r'^product-reviews$', tut1_tabs_views.product_reviews),
 	url(r'^product-tabs$', tut1_tabs_views.product_tabs),
+	url(r'^tabs_http_request$', tut1_tabs_views.tabs_http_request),
+	url(r'^store-products$', tut1_tabs_views.store_products),
 )
